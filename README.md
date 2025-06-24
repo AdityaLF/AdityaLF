@@ -6,6 +6,6 @@
 
 <p align="center">
    <a href="https://ko-fi.com/adityaf">
-      <img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a02fcf48af59c591185_support_me_on_kofi_dark.png" width="250" />
+      <img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/670f5a0171bfb928b21a7e00_support_me_on_kofi_beige.png" width="200" />
    </a>
 </p>
