@@ -19,7 +19,7 @@
    [![GitHub](https://img.shields.io/badge/GitHub-273849?style=for-the-badge&logo=github&logoColor=white)](https://github.com/adityalf)
    [![Instagram](https://img.shields.io/badge/Instagram-273849?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/adityaa_df)
    [![Discord](https://img.shields.io/badge/Discord-273849?style=for-the-badge&logo=discord&logoColor=white)](https://discordapp.com/users/786163564205047839)
-   [![Website](https://img.shields.io/badge/Website-41b883?style=for-the-badge&logo=firefox-browser&logoColor=white)](https://adityaf.vercel.app)
+   [![Website](https://img.shields.io/badge/Website-41b883?style=for-the-badge&logo=firefox-browser&logoColor=white)](https://adityalf.is-a.dev)
    
 </div>
 
