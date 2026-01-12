@@ -1,8 +1,8 @@
 <img src="https://komarev.com/ghpvc/?username=adityalf&color=41b883&style=flat-square" alt="Profile Views">
 
 <p align="center">
-   <a href="https://adityalf.is-a.dev">
-      <img src="https://discord-activity-card.vercel.app/api/card" alt="discord-profile" />
+   <a href="https://discord-activity-card.vercel.app/">
+      <img src="https://discord-activity-card.vercel.app/api/status/786163564205047839?small_image=true&name_type=display" alt="discord-activity-card" />
    </a>
 </p>
 
