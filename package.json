@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Terminal-style SVG generator for GitHub profile READMEs with Discord Rich Presence, VS Code activity log, and GitHub statistics.",
   "type": "module",
-  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",

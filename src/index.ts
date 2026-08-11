@@ -30,7 +30,10 @@ async function main() {
   console.log('Terminal generation complete.');
 }
 
-main().catch((err) => {
-  console.error('Error executing generator:', err);
-  process.exit(1);
-});
+if (!process.env.VERCEL && (process.argv[1]?.endsWith('index.js') || process.argv[1]?.endsWith('index.ts'))) {
+  main().catch((err) => {
+    console.error('Error executing generator:', err);
+    process.exit(1);
+  });
+}
+
