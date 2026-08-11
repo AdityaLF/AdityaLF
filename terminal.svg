@@ -1,0 +1,403 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="885" height="573" viewBox="0 0 885 573" fill="none" xml:space="preserve">
+  <defs>
+    <clipPath id="typewriter-clip">
+      <rect x="0" y="38" width="0" height="26">
+        <animate attributeName="width" from="140" to="368.0" dur="0.55s" begin="0.10s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="footer-line-clip">
+      <rect x="442.5" y="536" width="0" height="4">
+        <animate attributeName="x" from="442.5" to="25" dur="0.25s" begin="3.32s" fill="freeze" calcMode="linear" />
+        <animate attributeName="width" from="0" to="835" dur="0.25s" begin="3.32s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-0">
+      <rect x="25" y="74" width="0" height="20">
+        <animate attributeName="width" from="0" to="240" dur="0.22s" begin="0.70s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-1">
+      <rect x="25" y="93" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="0.82s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-2">
+      <rect x="25" y="112" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="0.94s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-3">
+      <rect x="25" y="131" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.06s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-4">
+      <rect x="25" y="150" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.18s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-5">
+      <rect x="465" y="74" width="0" height="20">
+        <animate attributeName="width" from="0" to="240" dur="0.22s" begin="0.76s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-6">
+      <rect x="465" y="93" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="0.88s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-7">
+      <rect x="465" y="112" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.00s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-8">
+      <rect x="465" y="131" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.12s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-9">
+      <rect x="465" y="150" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.24s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-10">
+      <rect x="465" y="169" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.36s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-11">
+      <rect x="25" y="187" width="0" height="20">
+        <animate attributeName="width" from="0" to="240" dur="0.22s" begin="1.30s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-12">
+      <rect x="25" y="206" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.42s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-13">
+      <rect x="25" y="225" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.54s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-14">
+      <rect x="25" y="244" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.66s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-15">
+      <rect x="25" y="263" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.78s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-16">
+      <rect x="25" y="282" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.90s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-17">
+      <rect x="465" y="206" width="0" height="20">
+        <animate attributeName="width" from="0" to="240" dur="0.22s" begin="1.48s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-18">
+      <rect x="465" y="225" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.60s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-19">
+      <rect x="465" y="244" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.72s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-20">
+      <rect x="465" y="263" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.84s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-21">
+      <rect x="465" y="282" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="1.96s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-22">
+      <rect x="465" y="301" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.08s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-23">
+      <rect x="465" y="320" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.20s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-24">
+      <rect x="25" y="319" width="0" height="20">
+        <animate attributeName="width" from="0" to="240" dur="0.22s" begin="2.02s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-25">
+      <rect x="25" y="338" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.14s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-26">
+      <rect x="25" y="357" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.26s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-27">
+      <rect x="25" y="376" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.38s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-28">
+      <rect x="25" y="395" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.50s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-29">
+      <rect x="25" y="414" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.62s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-30">
+      <rect x="25" y="433" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.74s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-31">
+      <rect x="25" y="452" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.86s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-32">
+      <rect x="25" y="471" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.98s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-33">
+      <rect x="25" y="490" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="3.10s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-34">
+      <rect x="465" y="357" width="0" height="20">
+        <animate attributeName="width" from="0" to="240" dur="0.22s" begin="2.32s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-35">
+      <rect x="465" y="376" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.44s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+    <clipPath id="line-36">
+      <rect x="465" y="395" width="0" height="20">
+        <animate attributeName="width" from="0" to="380" dur="0.22s" begin="2.56s" fill="freeze" calcMode="linear" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    .bg { fill: #0d1117; }
+    .header { fill: #161b22; }
+    .header-text { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 14px; fill: #8b949e; font-weight: bold; }
+    .term-text { font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 14px; white-space: pre; }
+    .btn-red { fill: #ff5f56; }
+    .btn-yellow { fill: #ffbd2e; }
+    .btn-green { fill: #27c93f; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-footer-line { opacity: 0; animation: fadeIn 0.1s ease-out forwards; animation-delay: 3.32s; }
+    .animate-footer-text { opacity: 0; animation: fadeIn 0.25s ease-out forwards; animation-delay: 3.57s; }
+
+    .line-0 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 0.70s; clip-path: url(#line-0); }
+    .line-1 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 0.82s; clip-path: url(#line-1); }
+    .line-2 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 0.94s; clip-path: url(#line-2); }
+    .line-3 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.06s; clip-path: url(#line-3); }
+    .line-4 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.18s; clip-path: url(#line-4); }
+    .line-5 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 0.76s; clip-path: url(#line-5); }
+    .line-6 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 0.88s; clip-path: url(#line-6); }
+    .line-7 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.00s; clip-path: url(#line-7); }
+    .line-8 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.12s; clip-path: url(#line-8); }
+    .line-9 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.24s; clip-path: url(#line-9); }
+    .line-10 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.36s; clip-path: url(#line-10); }
+    .line-11 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.30s; clip-path: url(#line-11); }
+    .line-12 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.42s; clip-path: url(#line-12); }
+    .line-13 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.54s; clip-path: url(#line-13); }
+    .line-14 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.66s; clip-path: url(#line-14); }
+    .line-15 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.78s; clip-path: url(#line-15); }
+    .line-16 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.90s; clip-path: url(#line-16); }
+    .line-17 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.48s; clip-path: url(#line-17); }
+    .line-18 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.60s; clip-path: url(#line-18); }
+    .line-19 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.72s; clip-path: url(#line-19); }
+    .line-20 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.84s; clip-path: url(#line-20); }
+    .line-21 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 1.96s; clip-path: url(#line-21); }
+    .line-22 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.08s; clip-path: url(#line-22); }
+    .line-23 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.20s; clip-path: url(#line-23); }
+    .line-24 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.02s; clip-path: url(#line-24); }
+    .line-25 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.14s; clip-path: url(#line-25); }
+    .line-26 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.26s; clip-path: url(#line-26); }
+    .line-27 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.38s; clip-path: url(#line-27); }
+    .line-28 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.50s; clip-path: url(#line-28); }
+    .line-29 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.62s; clip-path: url(#line-29); }
+    .line-30 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.74s; clip-path: url(#line-30); }
+    .line-31 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.86s; clip-path: url(#line-31); }
+    .line-32 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.98s; clip-path: url(#line-32); }
+    .line-33 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 3.10s; clip-path: url(#line-33); }
+    .line-34 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.32s; clip-path: url(#line-34); }
+    .line-35 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.44s; clip-path: url(#line-35); }
+    .line-36 { opacity: 0; animation: fadeIn 0.10s ease-out forwards; animation-delay: 2.56s; clip-path: url(#line-36); }
+  </style>
+
+  <!-- Terminal Window Background -->
+  <rect x="1" y="1" width="883" height="571" class="bg" rx="12" ry="12" />
+
+  <!-- Terminal Header Bar -->
+  <path d="M 1 12 Q 1 1 12 1 L 872 1 Q 884 1 884 12 L 884 36 L 1 36 Z" class="header" />
+  <line x1="1" y1="36" x2="884" y2="36" stroke="#30363d" stroke-width="1" />
+
+  <!-- Terminal Outer Window Border -->
+  <rect x="1" y="1" width="883" height="571" fill="none" stroke="#30363d" stroke-width="1" rx="12" ry="12" />
+
+  <!-- Control Buttons -->
+  <circle cx="20" cy="18" r="6" class="btn-red" />
+  <circle cx="40" cy="18" r="6" class="btn-yellow" />
+  <circle cx="60" cy="18" r="6" class="btn-green" />
+
+  <!-- Header Title -->
+  <text x="442.5" y="22" text-anchor="middle" class="header-text">~/github/adityalf</text>
+
+  <!-- Main Terminal Content -->
+  <g class="term-text">
+    <!-- Prompt Line with Real Typewriter Animation -->
+    <g>
+      <text x="25" y="56" fill="#58a6ff" font-weight="bold">guest@github:~$ <tspan fill="#c9d1d9" font-weight="normal" clip-path="url(#typewriter-clip)">gh profile view adityalf</tspan></text>
+    </g>
+
+    <g class="line-0">
+      <text x="25" y="88"><tspan fill="#e3b341" font-weight="bold">Discord Rich Presence</tspan></text>
+    </g>
+    <g class="line-1">
+      <text x="25" y="107"><tspan fill="#58a6ff">└─ </tspan><tspan fill="#c9d1d9">Visual Studio Code</tspan></text>
+    </g>
+    <g class="line-2">
+      <text x="25" y="126"><tspan fill="#58a6ff">   ├─ </tspan><tspan fill="#c9d1d9">In a workspace - 0 problems found</tspan></text>
+    </g>
+    <g class="line-3">
+      <text x="25" y="145"><tspan fill="#58a6ff">   └─ </tspan><tspan fill="#c9d1d9">Working on config.ts:24:15</tspan></text>
+    </g>
+    <g class="line-4">
+      <text x="25" y="164"><tspan fill="#58a6ff">      └─ </tspan><tspan fill="#8b949e">2h 57m elapsed</tspan></text>
+    </g>
+    <g class="line-5">
+      <text x="465" y="88"><tspan fill="#e3b341" font-weight="bold">Activity Overview</tspan></text>
+    </g>
+    <g class="line-6">
+      <text x="465" y="107"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">Repos: </tspan><tspan fill="#484f58">........... </tspan><tspan fill="#79c0ff">14</tspan></text>
+    </g>
+    <g class="line-7">
+      <text x="465" y="126"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">Commits: </tspan><tspan fill="#484f58">......... </tspan><tspan fill="#79c0ff">173</tspan></text>
+    </g>
+    <g class="line-8">
+      <text x="465" y="145"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">PRs: </tspan><tspan fill="#484f58">............. </tspan><tspan fill="#79c0ff">7</tspan></text>
+    </g>
+    <g class="line-9">
+      <text x="465" y="164"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">Merges: </tspan><tspan fill="#484f58">.......... </tspan><tspan fill="#79c0ff">6</tspan></text>
+    </g>
+    <g class="line-10">
+      <text x="465" y="183"><tspan fill="#58a6ff">└─ </tspan><tspan fill="#c9d1d9">Stars: </tspan><tspan fill="#484f58">........... </tspan><tspan fill="#79c0ff">7</tspan></text>
+    </g>
+    <g class="line-11">
+      <text x="25" y="201"><tspan fill="#e3b341" font-weight="bold">Recent Events</tspan></text>
+    </g>
+    <g class="line-12">
+      <text x="25" y="220"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">Released v0.1.0 in oom-forensics</tspan></text>
+    </g>
+    <g class="line-13">
+      <text x="25" y="239"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">Created branch main in oom-forensics</tspan></text>
+    </g>
+    <g class="line-14">
+      <text x="25" y="258"><tspan fill="#58a6ff">│  └─ </tspan><tspan fill="#8b949e">7d ago</tspan></text>
+    </g>
+    <g class="line-15">
+      <text x="25" y="277"><tspan fill="#58a6ff">└─ </tspan><tspan fill="#c9d1d9">Merged PR #2 in discord-github-profil…</tspan></text>
+    </g>
+    <g class="line-16">
+      <text x="25" y="296"><tspan fill="#58a6ff">   └─ </tspan><tspan fill="#8b949e">8d ago</tspan></text>
+    </g>
+    <g class="line-17">
+      <text x="465" y="220"><tspan fill="#e3b341" font-weight="bold">Latest Repos</tspan></text>
+    </g>
+    <g class="line-18">
+      <text x="465" y="239"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">AdityaLF/oom-forensics</tspan></text>
+    </g>
+    <g class="line-19">
+      <text x="465" y="258"><tspan fill="#58a6ff">│  └─ </tspan><tspan fill="#8b949e">7d ago</tspan></text>
+    </g>
+    <g class="line-20">
+      <text x="465" y="277"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">AdityaLF/discord-github-profile-widget</tspan></text>
+    </g>
+    <g class="line-21">
+      <text x="465" y="296"><tspan fill="#58a6ff">│  └─ </tspan><tspan fill="#8b949e">8d ago</tspan></text>
+    </g>
+    <g class="line-22">
+      <text x="465" y="315"><tspan fill="#58a6ff">└─ </tspan><tspan fill="#c9d1d9">AdityaLF/lanyard-obs-widget</tspan></text>
+    </g>
+    <g class="line-23">
+      <text x="465" y="334"><tspan fill="#58a6ff">   └─ </tspan><tspan fill="#8b949e">9d ago</tspan></text>
+    </g>
+    <g class="line-24">
+      <text x="25" y="333"><tspan fill="#e3b341" font-weight="bold">Development Log</tspan></text>
+    </g>
+    <g class="line-25">
+      <text x="25" y="352"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">In a workspace - 0 problems found</tspan></text>
+    </g>
+    <g class="line-26">
+      <text x="25" y="371"><tspan fill="#58a6ff">│  └─ </tspan><tspan fill="#c9d1d9">Viewing .env</tspan></text>
+    </g>
+    <g class="line-27">
+      <text x="25" y="390"><tspan fill="#58a6ff">│     └─ </tspan><tspan fill="#8b949e">1h ago</tspan></text>
+    </g>
+    <g class="line-28">
+      <text x="25" y="409"><tspan fill="#58a6ff">├─ </tspan><tspan fill="#c9d1d9">In a workspace - 0 problems found</tspan></text>
+    </g>
+    <g class="line-29">
+      <text x="25" y="428"><tspan fill="#58a6ff">│  └─ </tspan><tspan fill="#c9d1d9">Working on package-lock.json:85:26</tspan></text>
+    </g>
+    <g class="line-30">
+      <text x="25" y="447"><tspan fill="#58a6ff">│     └─ </tspan><tspan fill="#8b949e">2h ago</tspan></text>
+    </g>
+    <g class="line-31">
+      <text x="25" y="466"><tspan fill="#58a6ff">└─ </tspan><tspan fill="#c9d1d9">In a workspace - 0 problems found</tspan></text>
+    </g>
+    <g class="line-32">
+      <text x="25" y="485"><tspan fill="#58a6ff">   └─ </tspan><tspan fill="#c9d1d9">Working on .gitignore:14:1</tspan></text>
+    </g>
+    <g class="line-33">
+      <text x="25" y="504"><tspan fill="#58a6ff">      └─ </tspan><tspan fill="#8b949e">22h ago</tspan></text>
+    </g>
+    <g class="line-34">
+      <text x="465" y="371"><tspan fill="#e3b341" font-weight="bold">Latest Commits</tspan></text>
+    </g>
+    <g class="line-35">
+      <text x="465" y="390"><tspan fill="#58a6ff">└─ </tspan><tspan fill="#c9d1d9">Updated repository</tspan></text>
+    </g>
+    <g class="line-36">
+      <text x="465" y="409"><tspan fill="#58a6ff">   └─ </tspan><tspan fill="#8b949e">7d ago</tspan></text>
+    </g>
+
+    <!-- Terminal Footer Line -->
+    <g class="animate-footer-line">
+      <line x1="25" y1="538" x2="860" y2="538" stroke="#30363d" stroke-width="1" clip-path="url(#footer-line-clip)" />
+    </g>
+    <g class="animate-footer-text">
+      <text x="25" y="558" fill="#8b949e" font-size="12px">Profile Views: <tspan fill="#79c0ff">2,939</tspan></text>
+      <text x="860" y="558" text-anchor="end" fill="#8b949e" font-size="12px">Last Updated: <tspan fill="#79c0ff">2026-08-11 07:30 UTC</tspan></text>
+    </g>
+  </g>
+</svg>

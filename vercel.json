@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/terminal.svg",
+      "destination": "/api/terminal"
+    },
+    {
+      "source": "/cron",
+      "destination": "/api/cron"
+    }
+  ]
+}
