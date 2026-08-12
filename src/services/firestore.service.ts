@@ -116,7 +116,7 @@ export async function fetchCommitsFromFirestore(_username: string, limitCount = 
   try {
     const snapshot = await firestore
       .collection('latest_commits')
-      .limit(limitCount)
+      .limit(30)
       .get();
 
     if (snapshot.empty) return [];

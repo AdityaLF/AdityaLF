@@ -39,6 +39,7 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
     let pullRequests = 0;
     let merges = 0;
     let commits = 0;
+    let searchCommitsList: { message: string; repo: string; timeAgo: string; sha?: string; date?: string }[] = [];
 
     try {
       const prRes = await fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr`, { headers });
@@ -58,11 +59,31 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
       }
 
       const commitHeaders = { ...headers, 'Accept': 'application/vnd.github.cloak-preview+json' };
-      const commitRes = await fetch(`https://api.github.com/search/commits?q=author:${username}`, { headers: commitHeaders });
+      const commitRes = await fetch(`https://api.github.com/search/commits?q=author:${username}&sort=author-date&order=desc&per_page=10`, { headers: commitHeaders });
       if (commitRes.ok) {
         const commitData = (await commitRes.json()) as any;
         if (typeof commitData.total_count === 'number') {
           commits = commitData.total_count;
+        }
+        if (Array.isArray(commitData.items)) {
+          for (const item of commitData.items) {
+            if (searchCommitsList.length >= 3) break;
+            const rawMsg = item.commit?.message || '';
+            const cleanMsg = rawMsg.split('\n')[0].trim();
+            const repoShort = item.repository?.name || item.repository?.full_name?.split('/')[1] || '';
+            const commitDate = item.commit?.author?.date || item.commit?.committer?.date || new Date().toISOString();
+            const shaStr = item.sha ? String(item.sha).slice(0, 7) : undefined;
+
+            if (cleanMsg && !searchCommitsList.some((c) => c.message === cleanMsg || (c.sha && shaStr && c.sha === shaStr))) {
+              searchCommitsList.push({
+                message: cleanMsg,
+                repo: repoShort,
+                timeAgo: formatRelativeTime(commitDate),
+                sha: shaStr,
+                date: commitDate,
+              });
+            }
+          }
         }
       }
     } catch {}
@@ -71,9 +92,9 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
     let latestRepo = latestRepoName ? `${username}/${latestRepoName}` : '';
     let latestRepoDate = reposData[0]?.pushed_at || reposData[0]?.updated_at || new Date().toISOString();
     let latestCommit = {
-      message: '',
-      repo: latestRepoName,
-      date: new Date().toISOString(),
+      message: searchCommitsList[0]?.message || '',
+      repo: searchCommitsList[0]?.repo || latestRepoName,
+      date: searchCommitsList[0]?.date || new Date().toISOString(),
     };
     let recentEvents: string[] = [];
     let recentActivities: { action: string; timeAgo: string; eventId?: string }[] = [];
@@ -96,9 +117,9 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
             msg = pushEvent.payload.commits[pushEvent.payload.commits.length - 1].message || '';
           }
           latestCommit = {
-            message: msg.split('\n')[0],
-            repo: repoShort,
-            date: pushEvent.created_at || new Date().toISOString(),
+            message: msg ? msg.split('\n')[0] : (latestCommit.message || ''),
+            repo: repoShort || latestCommit.repo,
+            date: pushEvent.created_at || latestCommit.date || new Date().toISOString(),
           };
           latestRepoName = repoShort;
           latestRepo = `${username}/${repoShort}`;
@@ -123,27 +144,29 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
           }
         }
 
-        latestCommitsList = [];
-        for (const ev of events) {
-          if (ev.type === 'PushEvent' && ev.payload?.commits && ev.payload.commits.length > 0) {
-            const repoShort = ev.repo?.name ? ev.repo.name.split('/')[1] || ev.repo.name : 'repo';
-            const timeAgo = formatRelativeTime(ev.created_at || new Date().toISOString());
-            const commitsArr = [...ev.payload.commits].reverse();
-            for (const c of commitsArr) {
-              if (c.message && latestCommitsList.length < 3) {
-                const cleanMsg = c.message.split('\n')[0].trim();
-                if (!latestCommitsList.some((lc) => lc.message === cleanMsg)) {
-                  latestCommitsList.push({
-                    message: cleanMsg,
-                    repo: repoShort,
-                    timeAgo,
-                    sha: c.sha ? String(c.sha).slice(0, 7) : undefined,
-                  });
+        latestCommitsList = [...searchCommitsList];
+        if (latestCommitsList.length < 3) {
+          for (const ev of events) {
+            if (ev.type === 'PushEvent' && ev.payload?.commits && ev.payload.commits.length > 0) {
+              const repoShort = ev.repo?.name ? ev.repo.name.split('/')[1] || ev.repo.name : 'repo';
+              const timeAgo = formatRelativeTime(ev.created_at || new Date().toISOString());
+              const commitsArr = [...ev.payload.commits].reverse();
+              for (const c of commitsArr) {
+                if (c.message && latestCommitsList.length < 3) {
+                  const cleanMsg = c.message.split('\n')[0].trim();
+                  if (!latestCommitsList.some((lc) => lc.message === cleanMsg)) {
+                    latestCommitsList.push({
+                      message: cleanMsg,
+                      repo: repoShort,
+                      timeAgo,
+                      sha: c.sha ? String(c.sha).slice(0, 7) : undefined,
+                    });
+                  }
                 }
               }
             }
+            if (latestCommitsList.length >= 3) break;
           }
-          if (latestCommitsList.length >= 3) break;
         }
 
         if (latestCommitsList.length < 3) {
@@ -156,7 +179,7 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
           }
         }
 
-        if (latestCommitsList.length === 0) {
+        if (latestCommitsList.length === 0 && latestCommit.message) {
           latestCommitsList.push({
             message: latestCommit.message,
             repo: latestCommit.repo,
