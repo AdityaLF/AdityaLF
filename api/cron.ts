@@ -1,8 +1,8 @@
 import type { IncomingMessage, ServerResponse } from 'http';
-import { loadConfig } from '../src/config.js';
-import { fetchGitHubStats } from '../src/services/github.service.js';
-import { fetchLanyardStatus } from '../src/services/lanyard.service.js';
-import { updateDevLog } from '../src/services/devlog.service.js';
+import { loadConfig } from '../dist/config.js';
+import { fetchGitHubStats } from '../dist/services/github.service.js';
+import { fetchLanyardStatus } from '../dist/services/lanyard.service.js';
+import { updateDevLog } from '../dist/services/devlog.service.js';
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
   try {
