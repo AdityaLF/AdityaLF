@@ -337,6 +337,26 @@ export async function fetchVSCodeHistoryFromFirestore(_username: string, limitCo
   }
 }
 
+export async function fetchViewsFromFirestore(_username: string): Promise<string> {
+  const firestore = getFirestore();
+  if (!firestore) return '0';
+
+  try {
+    const docSnap = await firestore.collection('profile_views').doc('total').get();
+    if (docSnap.exists) {
+      const data = docSnap.data();
+      if (typeof data?.count === 'number') {
+        return data.count.toLocaleString('en-US');
+      } else if (data?.viewsCount) {
+        return String(data.viewsCount);
+      }
+    }
+  } catch (err) {
+    console.warn('Error fetching Profile Views from Firestore:', err);
+  }
+  return '0';
+}
+
 export async function incrementAndFetchViewsFromFirestore(_username: string): Promise<string> {
   const firestore = getFirestore();
 

@@ -43,7 +43,6 @@ export default async function handler(_req?: IncomingMessage, res?: ServerRespon
         }
 
         const config = loadConfig();
-        const stats = await fetchGitHubStats(config.github.username);
         const discord = await fetchLanyardStatus(config.discord.discordId, config.github.username);
         const history = await updateDevLog(discord.activities, config.github.username);
 
@@ -55,14 +54,9 @@ export default async function handler(_req?: IncomingMessage, res?: ServerRespon
             success: true,
             timestamp: new Date().toISOString(),
             username: config.github.username,
-            statsFetched: {
-              repos: stats.publicRepos,
-              commits: stats.commits,
-              latestRepo: stats.latestRepo,
-            },
             discordStatus: discord.status,
             devLogCount: history.records?.length || 0,
-            message: 'Firestore successfully synced via Cron Job',
+            message: 'Discord last active status and DevLog successfully synced to Firestore via Cron Job',
           })
         );
       } catch (err: any) {
@@ -88,7 +82,7 @@ export default async function handler(_req?: IncomingMessage, res?: ServerRespon
 
     if (res) {
       res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
-      res.setHeader('Cache-Control', 'public, max-age=180, s-maxage=300, stale-while-revalidate=600');
+      res.setHeader('Cache-Control', 'max-age=0, no-cache, no-store, must-revalidate');
       res.statusCode = 200;
       res.end(svg);
     }

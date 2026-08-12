@@ -1,6 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'http';
 import { loadConfig } from '../src/config.js';
-import { fetchGitHubStats } from '../src/services/github.service.js';
 import { fetchLanyardStatus } from '../src/services/lanyard.service.js';
 import { updateDevLog } from '../src/services/devlog.service.js';
 
@@ -38,7 +37,6 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     console.log(`[${new Date().toISOString()}] Executing Cron Sync (Vercel / cron-job.org)...`);
     const config = loadConfig();
 
-    const stats = await fetchGitHubStats(config.github.username);
     const discord = await fetchLanyardStatus(config.discord.discordId, config.github.username);
     const history = await updateDevLog(discord.activities, config.github.username);
 
@@ -50,14 +48,9 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         success: true,
         timestamp: new Date().toISOString(),
         username: config.github.username,
-        statsFetched: {
-          repos: stats.publicRepos,
-          commits: stats.commits,
-          latestRepo: stats.latestRepo,
-        },
         discordStatus: discord.status,
         devLogCount: history.records?.length || 0,
-        message: 'Firestore successfully synced via Cron Job!',
+        message: 'Discord last active status and DevLog successfully synced to Firestore via Cron Job',
       })
     );
   } catch (err: any) {

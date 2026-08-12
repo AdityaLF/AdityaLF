@@ -29,7 +29,6 @@ const server = http.createServer(async (req, res) => {
         );
       }
 
-      const stats = await fetchGitHubStats(config.github.username);
       const discord = await fetchLanyardStatus(config.discord.discordId, config.github.username);
       const history = await updateDevLog(discord.activities, config.github.username);
 
@@ -42,14 +41,9 @@ const server = http.createServer(async (req, res) => {
           success: true,
           timestamp: new Date().toISOString(),
           username: config.github.username,
-          statsFetched: {
-            repos: stats.publicRepos,
-            commits: stats.commits,
-            latestRepo: stats.latestRepo,
-          },
           discordStatus: discord.status,
           devLogCount: history.records?.length || 0,
-          message: 'Firestore successfully synced via Cron Job',
+          message: 'Discord last active status and DevLog successfully synced to Firestore via Cron Job',
         })
       );
     } catch (err: any) {

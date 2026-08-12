@@ -7,9 +7,13 @@ import {
   fetchCommitsFromFirestore,
   fetchReposFromFirestore,
   incrementAndFetchViewsFromFirestore,
+  fetchViewsFromFirestore,
 } from './firestore.service.js';
 
-export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
+export async function fetchGitHubStats(
+  username: string,
+  options: { incrementViews?: boolean } = { incrementViews: true }
+): Promise<GitHubStats> {
   const token = process.env.GH_TOKEN;
   const headers: Record<string, string> = {
     'User-Agent': 'adityalf-readme',
@@ -271,7 +275,9 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
       recentEvents = recentActivities.map((a) => a.action);
     }
 
-    const viewsFormatted = await incrementAndFetchViewsFromFirestore(username);
+    const viewsFormatted = options.incrementViews !== false
+      ? await incrementAndFetchViewsFromFirestore(username)
+      : await fetchViewsFromFirestore(username);
 
     const statsResult: GitHubStats = {
       username: userData.login || username,
