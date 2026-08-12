@@ -1,9 +1,9 @@
 import type { IncomingMessage, ServerResponse } from 'http';
-import { loadConfig } from '../dist/config.js';
-import { fetchGitHubStats } from '../dist/services/github.service.js';
-import { fetchLanyardStatus } from '../dist/services/lanyard.service.js';
-import { updateDevLog } from '../dist/services/devlog.service.js';
-import { renderTerminalSvg } from '../dist/renderers/terminal.renderer.js';
+import { loadConfig } from '../src/config.js';
+import { fetchGitHubStats } from '../src/services/github.service.js';
+import { fetchLanyardStatus } from '../src/services/lanyard.service.js';
+import { updateDevLog } from '../src/services/devlog.service.js';
+import { renderTerminalSvg } from '../src/renderers/terminal.renderer.js';
 
 export default async function handler(_req: IncomingMessage, res: ServerResponse) {
   // Strip query params to prevent cache bypass
