@@ -57,8 +57,10 @@ const server = http.createServer(async (req, res) => {
     try {
       console.log(`[${new Date().toLocaleTimeString()}] Serving terminal.svg...`);
       const config = loadConfig();
-      const stats = await fetchGitHubStats(config.github.username);
-      const discord = await fetchLanyardStatus(config.discord.discordId, config.github.username);
+      const [stats, discord] = await Promise.all([
+        fetchGitHubStats(config.github.username),
+        fetchLanyardStatus(config.discord.discordId, config.github.username),
+      ]);
       const history = await updateDevLog(discord.activities, config.github.username);
       const svg = renderTerminalSvg(config, stats, discord, history);
 

@@ -75,8 +75,10 @@ export default async function handler(_req?: IncomingMessage, res?: ServerRespon
 
   try {
     const config = loadConfig();
-    const stats = await fetchGitHubStats(config.github.username);
-    const discord = await fetchLanyardStatus(config.discord.discordId, config.github.username);
+    const [stats, discord] = await Promise.all([
+      fetchGitHubStats(config.github.username),
+      fetchLanyardStatus(config.discord.discordId, config.github.username),
+    ]);
     const history = await updateDevLog(discord.activities, config.github.username);
     const svg = renderTerminalSvg(config, stats, discord, history);
 

@@ -24,13 +24,21 @@ export async function fetchGitHubStats(
   }
 
   try {
-    const userRes = await fetch(`https://api.github.com/users/${username}`, { headers });
+    const commitHeaders = { ...headers, 'Accept': 'application/vnd.github.cloak-preview+json' };
+
+    const [userRes, reposRes, prRes, mergedRes, commitRes, eventsRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${username}`, { headers }),
+      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, { headers }),
+      fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr`, { headers }).catch(() => null),
+      fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr+is:merged`, { headers }).catch(() => null),
+      fetch(`https://api.github.com/search/commits?q=author:${username}&sort=author-date&order=desc&per_page=10`, { headers: commitHeaders }).catch(() => null),
+      fetch(`https://api.github.com/users/${username}/events/public`, { headers }).catch(() => null),
+    ]);
+
     if (!userRes.ok) {
       throw new Error(`GitHub API user fetch failed: ${userRes.statusText}`);
     }
     const userData = (await userRes.json()) as any;
-
-    const reposRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, { headers });
     const reposData = reposRes.ok ? ((await reposRes.json()) as any[]) : [];
 
     let totalStars = 0;
@@ -46,25 +54,21 @@ export async function fetchGitHubStats(
     let searchCommitsList: { message: string; repo: string; timeAgo: string; sha?: string; date?: string }[] = [];
 
     try {
-      const prRes = await fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr`, { headers });
-      if (prRes.ok) {
+      if (prRes && prRes.ok) {
         const prData = (await prRes.json()) as any;
         if (typeof prData.total_count === 'number') {
           pullRequests = prData.total_count;
         }
       }
 
-      const mergedRes = await fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr+is:merged`, { headers });
-      if (mergedRes.ok) {
+      if (mergedRes && mergedRes.ok) {
         const mergedData = (await mergedRes.json()) as any;
         if (typeof mergedData.total_count === 'number') {
           merges = mergedData.total_count;
         }
       }
 
-      const commitHeaders = { ...headers, 'Accept': 'application/vnd.github.cloak-preview+json' };
-      const commitRes = await fetch(`https://api.github.com/search/commits?q=author:${username}&sort=author-date&order=desc&per_page=10`, { headers: commitHeaders });
-      if (commitRes.ok) {
+      if (commitRes && commitRes.ok) {
         const commitData = (await commitRes.json()) as any;
         if (typeof commitData.total_count === 'number') {
           commits = commitData.total_count;
@@ -107,8 +111,7 @@ export async function fetchGitHubStats(
 
     try {
       let events: any[] = [];
-      const eventsRes = await fetch(`https://api.github.com/users/${username}/events/public`, { headers });
-      if (eventsRes.ok) {
+      if (eventsRes && eventsRes.ok) {
         events = (await eventsRes.json()) as any[];
       }
 
