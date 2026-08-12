@@ -91,7 +91,6 @@ To record Discord activity history into Firestore:
 ## Credits
 
 - [Lanyard](https://github.com/Phineas/lanyard) - Live Discord Rich Presence REST API
-- [github-profile-views-counter](https://github.com/antonkomarev/github-profile-views-counter) - Profile visitor counter API
 
 ## License
 

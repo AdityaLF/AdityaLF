@@ -6,7 +6,7 @@ import {
   fetchEventsFromFirestore,
   fetchCommitsFromFirestore,
   fetchReposFromFirestore,
-  saveViewsToFirestore,
+  incrementAndFetchViewsFromFirestore,
 } from './firestore.service.js';
 
 export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
@@ -271,7 +271,7 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
       recentEvents = recentActivities.map((a) => a.action);
     }
 
-    const viewsFormatted = await fetchVisitorCount(username);
+    const viewsFormatted = await incrementAndFetchViewsFromFirestore(username);
 
     const statsResult: GitHubStats = {
       username: userData.login || username,
@@ -293,29 +293,12 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats> {
 
     saveGitHubHistoryToFirestore(username, statsResult).catch(() => {});
     saveEventsToFirestore(username, recentActivities).catch(() => {});
-    saveViewsToFirestore(username, viewsFormatted).catch(() => {});
 
     return statsResult;
   } catch (error) {
     console.warn('Falling back to default stats due to API error:', error);
     return getFallbackGitHubStats(username);
   }
-}
-
-export async function fetchVisitorCount(username: string): Promise<string> {
-  try {
-    const res = await fetch(`https://komarev.com/ghpvc/?username=${username}`);
-    if (res.ok) {
-      const svg = await res.text();
-      const matches = svg.match(/<text[^>]*>([\d,]+)<\/text>/g);
-      if (matches && matches.length > 0) {
-        const lastMatch = matches[matches.length - 1];
-        const val = lastMatch.replace(/<[^>]+>/g, '').trim();
-        if (val) return val;
-      }
-    }
-  } catch {}
-  return '0';
 }
 
 function getFallbackGitHubStats(username: string): GitHubStats {
