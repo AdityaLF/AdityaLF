@@ -11,7 +11,7 @@ export function truncateText(str: string, maxLen: number = 36): string {
   if (!str) return '';
   const clean = str.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
   if (clean.length <= maxLen) return clean;
-  return clean.slice(0, maxLen - 1) + '…';
+  return clean.slice(0, maxLen - 1).trimEnd() + '…';
 }
 
 export function createShortHash(input: string): string {

@@ -26,10 +26,9 @@ export async function fetchGitHubStats(
   try {
     const commitHeaders = { ...headers, 'Accept': 'application/vnd.github.cloak-preview+json' };
 
-    const [userRes, reposRes, prRes, mergedRes, commitRes, eventsRes] = await Promise.all([
+    const [userRes, reposRes, mergedRes, commitRes, eventsRes] = await Promise.all([
       fetch(`https://api.github.com/users/${username}`, { headers }),
-      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, { headers }),
-      fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr`, { headers }).catch(() => null),
+      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed&direction=desc`, { headers }),
       fetch(`https://api.github.com/search/issues?q=author:${username}+type:pr+is:merged`, { headers }).catch(() => null),
       fetch(`https://api.github.com/search/commits?q=author:${username}&sort=author-date&order=desc&per_page=10`, { headers: commitHeaders }).catch(() => null),
       fetch(`https://api.github.com/users/${username}/events/public`, { headers }).catch(() => null),
@@ -41,26 +40,26 @@ export async function fetchGitHubStats(
     const userData = (await userRes.json()) as any;
     const reposData = reposRes.ok ? ((await reposRes.json()) as any[]) : [];
 
+    const sortedRepos = [...reposData].sort((a: any, b: any) => {
+      const dateA = new Date(a.pushed_at || a.updated_at || 0).getTime();
+      const dateB = new Date(b.pushed_at || b.updated_at || 0).getTime();
+      return dateB - dateA;
+    });
+
     let totalStars = 0;
+    let totalForks = 0;
     reposData.forEach((repo) => {
       if (!repo.fork) {
         totalStars += repo.stargazers_count || 0;
+        totalForks += repo.forks_count || 0;
       }
     });
 
-    let pullRequests = 0;
     let merges = 0;
     let commits = 0;
     let searchCommitsList: { message: string; repo: string; timeAgo: string; sha?: string; date?: string }[] = [];
 
     try {
-      if (prRes && prRes.ok) {
-        const prData = (await prRes.json()) as any;
-        if (typeof prData.total_count === 'number') {
-          pullRequests = prData.total_count;
-        }
-      }
-
       if (mergedRes && mergedRes.ok) {
         const mergedData = (await mergedRes.json()) as any;
         if (typeof mergedData.total_count === 'number') {
@@ -96,9 +95,9 @@ export async function fetchGitHubStats(
       }
     } catch {}
 
-    let latestRepoName = reposData[0]?.name || '';
+    let latestRepoName = sortedRepos[0]?.name || reposData[0]?.name || '';
     let latestRepo = latestRepoName ? `${username}/${latestRepoName}` : '';
-    let latestRepoDate = reposData[0]?.pushed_at || reposData[0]?.updated_at || new Date().toISOString();
+    let latestRepoDate = sortedRepos[0]?.pushed_at || sortedRepos[0]?.updated_at || new Date().toISOString();
     let latestCommit = {
       message: searchCommitsList[0]?.message || '',
       repo: searchCommitsList[0]?.repo || latestRepoName,
@@ -106,7 +105,14 @@ export async function fetchGitHubStats(
     };
     let recentEvents: string[] = [];
     let recentActivities: { action: string; timeAgo: string; eventId?: string }[] = [];
-    let latestReposList: { name: string; timeAgo: string }[] = [];
+    let latestReposList: { name: string; timeAgo: string }[] = sortedRepos.slice(0, 3).map((r: any) => {
+      const repoName = `${username}/${r.name}`;
+      const repoDate = r.pushed_at || r.updated_at || new Date().toISOString();
+      return {
+        name: repoName,
+        timeAgo: formatRelativeTime(repoDate),
+      };
+    });
     let latestCommitsList: { message: string; repo: string; timeAgo: string; sha?: string }[] = [];
 
     try {
@@ -287,8 +293,8 @@ export async function fetchGitHubStats(
       name: userData.name || userData.login || username,
       publicRepos: userData.public_repos || reposData.length,
       stars: totalStars,
+      forks: totalForks,
       commits,
-      pullRequests,
       merges,
       viewsFormatted,
       latestCommit,
@@ -316,8 +322,8 @@ function getFallbackGitHubStats(username: string): GitHubStats {
     name: username,
     publicRepos: 0,
     stars: 0,
+    forks: 0,
     commits: 0,
-    pullRequests: 0,
     merges: 0,
     viewsFormatted: '0',
     latestCommit: {

@@ -23,8 +23,8 @@ export interface GitHubStats {
   name: string;
   publicRepos: number;
   stars: number;
+  forks: number;
   commits: number;
-  pullRequests: number;
   merges: number;
   viewsFormatted?: string;
   latestCommit: { message: string; repo: string; date: string };
