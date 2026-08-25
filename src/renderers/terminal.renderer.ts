@@ -336,7 +336,7 @@ export function renderTerminalSvg(
         y: yRepo,
         maxWidth: 380,
         delay: tRight,
-        contentSvg: `<tspan fill="${treeColor}">${mainTreeChar} </tspan><tspan fill="${theme.text}">${escapeXml(truncateText(r.name, 44))}</tspan>`,
+        contentSvg: `<tspan fill="${treeColor}">${mainTreeChar} </tspan><tspan fill="${theme.text}">${escapeXml(truncateText(r.name, 38))}</tspan>`,
       });
       repoLinesCount += 1;
       tRight += 0.12;
@@ -548,7 +548,7 @@ export function renderTerminalSvg(
         y: yCommit,
         maxWidth: 380,
         delay: tRight,
-        contentSvg: `<tspan fill="${treeColor}">${mainTreeChar} </tspan><tspan fill="${theme.text}">${escapeXml(truncateText(msgStr, 44))}</tspan>`,
+        contentSvg: `<tspan fill="${treeColor}">${mainTreeChar} </tspan><tspan fill="${theme.text}">${escapeXml(truncateText(msgStr, 38))}</tspan>`,
       });
       commitLinesCount += 1;
       tRight += 0.12;

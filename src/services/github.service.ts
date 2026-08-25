@@ -106,7 +106,7 @@ export async function fetchGitHubStats(
     let recentEvents: string[] = [];
     let recentActivities: { action: string; timeAgo: string; eventId?: string }[] = [];
     let latestReposList: { name: string; timeAgo: string }[] = sortedRepos.slice(0, 3).map((r: any) => {
-      const repoName = `${username}/${r.name}`;
+      const repoName = r.name;
       const repoDate = r.pushed_at || r.updated_at || new Date().toISOString();
       return {
         name: repoName,
@@ -139,7 +139,7 @@ export async function fetchGitHubStats(
         }
 
         latestReposList = reposData.slice(0, 3).map((r: any) => {
-          const repoName = `${username}/${r.name}`;
+          const repoName = r.name;
           const repoDate = r.pushed_at || r.updated_at || new Date().toISOString();
           return {
             name: repoName,
