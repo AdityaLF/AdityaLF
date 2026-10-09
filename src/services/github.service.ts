@@ -113,7 +113,7 @@ export async function fetchGitHubStats(
         timeAgo: formatRelativeTime(repoDate),
       };
     });
-    let latestCommitsList: { message: string; repo: string; timeAgo: string; sha?: string }[] = [];
+    let latestCommitsList: { message: string; repo: string; timeAgo: string; sha?: string }[] = [...searchCommitsList];
 
     try {
       let events: any[] = [];
@@ -157,7 +157,6 @@ export async function fetchGitHubStats(
           }
         }
 
-        latestCommitsList = [...searchCommitsList];
         if (latestCommitsList.length < 3) {
           for (const ev of events) {
             if (ev.type === 'PushEvent' && ev.payload?.commits && ev.payload.commits.length > 0) {
@@ -180,24 +179,6 @@ export async function fetchGitHubStats(
             }
             if (latestCommitsList.length >= 3) break;
           }
-        }
-
-        if (latestCommitsList.length < 3) {
-          const fsCommits = await fetchCommitsFromFirestore(username);
-          for (const fc of fsCommits) {
-            if (latestCommitsList.length >= 3) break;
-            if (!latestCommitsList.some((c) => c.message === fc.message || (c.sha && c.sha === fc.sha))) {
-              latestCommitsList.push(fc);
-            }
-          }
-        }
-
-        if (latestCommitsList.length === 0 && latestCommit.message) {
-          latestCommitsList.push({
-            message: latestCommit.message,
-            repo: latestCommit.repo,
-            timeAgo: formatRelativeTime(latestCommit.date),
-          });
         }
 
         const highPriorityActivities: { action: string; timeAgo: string; eventId?: string }[] = [];
@@ -271,6 +252,24 @@ export async function fetchGitHubStats(
       }
     } catch (err) {
       console.warn('Could not parse GitHub events:', err);
+    }
+
+    if (latestCommitsList.length < 3) {
+      const fsCommits = await fetchCommitsFromFirestore(username);
+      for (const fc of fsCommits) {
+        if (latestCommitsList.length >= 3) break;
+        if (!latestCommitsList.some((c) => c.message === fc.message || (c.sha && c.sha === fc.sha))) {
+          latestCommitsList.push(fc);
+        }
+      }
+    }
+
+    if (latestCommitsList.length === 0 && latestCommit.message) {
+      latestCommitsList.push({
+        message: latestCommit.message,
+        repo: latestCommit.repo,
+        timeAgo: formatRelativeTime(latestCommit.date),
+      });
     }
 
     if (recentActivities.length < 3) {
